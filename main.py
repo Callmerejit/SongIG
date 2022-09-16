@@ -5,7 +5,7 @@ import urllib.request
 import string
 import random
 
-API_KEY = os.getenv('API_KEY')
+API_KEY = os.getenv('API_KEY')     //add your api key here.
 bot = telebot.TeleBot(API_KEY)
 
 @bot.message_handler(commands=['start'])
@@ -15,8 +15,6 @@ def start(message):
 
 @bot.message_handler(commands=['get_song'])
 def get_vid(message):
-    #video = "https://youtu.be/dQw4w9WgXcQ"
-    # video = "https://www.youtube.com/embed/" + yt()
     video = vid()
     bot.reply_to(message, video)
 
