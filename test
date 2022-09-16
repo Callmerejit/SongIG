@@ -1,0 +1,33 @@
+Anonymous chat app.
+Suicide prevention.
+Psychiatric integration.
+Google forms link.
+Data storage and cloud.(AWS)
+App base and ui design with java.
+Cloud link with javascript.
+
+"https://www.youtube.com/watch?v=nQDtvco_9No&ab_channel=_zui_","https://www.youtube.com/watch?v=i1P-9IspBus&ab_channel=AniMelody%E2%80%93AnimeMusic","https://www.youtube.com/watch?v=Y2zPYCNREBE&ab_channel=HoundDog"
+
+
+
+
+
+
+
+
+def yt():
+    count = 1
+    API_KEY = os.getenv('API_YT')
+    ran = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(3))
+
+    #urlData = "https://youtube.com/playlist?list=PL3-sRm8xAzY-w9GS19pLXMyFRTuJcuUjy"
+    urlData = "https://www.googleapis.com/youtube/v3/search?key={}&maxResults={}&part=snippet&type=video&q={}".format(API_KEY,count,ran)
+    webURL = urllib.request.urlopen(urlData)
+    data = webURL.read()
+    encoding = webURL.info().get_content_charset('utf-8')
+    results = json.loads(data.decode(encoding))
+
+    for data in results['items']:
+        videoId = (data['id']['videoId'])
+        return(videoId)
+        #store your ids
