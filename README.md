@@ -1,5 +1,5 @@
 # SongIG
-A basic bot that send random songs.
+A basic telegram bot that sends random song.
 
 
 Main.py contains the basic code.
