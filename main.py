@@ -10,7 +10,7 @@ bot = telebot.TeleBot(API_KEY)
 
 @bot.message_handler(commands=['start'])
 def start(message):
-    bot.send_message(message.chat.id,'Use /get_song to get a random video.')
+    bot.send_message(message.chat.id,'Use /get_song to get a random song.')
 
 
 @bot.message_handler(commands=['get_song'])
