@@ -1,29 +1,23 @@
 import os
 import telebot
+from telebot.types import InlineKeyboardButton, InlineKeyboardMarkup
 import json
 import urllib.request
-import string
 import random
+import youtube_dl
+
 
 API_KEY = os.getenv('API_KEY')     //telegram bot api key here.
 bot = telebot.TeleBot(API_KEY)
 
 API_YT = os.getenv('API_YT')    //youtube data api key here.
 
+audio_link = ''
+query = ''
+
 @bot.message_handler(commands=['start'])
 def start(message):
     bot.send_message(message.chat.id,'Use /get_song to get a random song.')
-
-
-@bot.message_handler(commands=['get_song'])
-def get_vid(message):
-    video = vid()
-    bot.reply_to(message, video)
-    
-
-@bot.message_handler(commands=["hi"])
-def hi(message): 
-    bot.send_photo(message.chat.id, photo = open("lol.jpg",'rb'))
 
 
 def vid():
@@ -32,19 +26,34 @@ def vid():
     return(ran_vid)
 
 
-query = ''
+@bot.message_handler(commands=['get_song'])
+def get_vid(message):
+    video = vid()
+    bot.reply_to(message, video)
+
+
+@bot.message_handler(commands=["hi"])
+def hi(message): 
+    bot.send_message(message.chat.id,'github.com/Subham-Singha/SongIG')
+
+
 @bot.message_handler(commands=["find"])
 def find(message):
     global query
+    global audio_link
     query = message.text[6::]
     if(query==''):
-        bot.send_message(message.chat.id, 'Please enter a song name.')
+        bot.send_message(message.chat.id, 'Use /find <Song Name> to search.')
     else:
         query = query.replace(" ","+")
         data = YT()
         bot.send_message(message.chat.id, "I've found "+(data['snippet']['title']))
         video = "https://www.youtube.com/watch?v=" + (data['id']['videoId'])
+        video_info = youtube_dl.YoutubeDL().extract_info(url = video,download=False)
+        audio_link = video_info['formats'][0]['url']
         bot.send_message(message.chat.id, video)
+        key_inline = InlineKeyboardMarkup().add(InlineKeyboardButton(text="Download", url= audio_link))
+        bot.send_message(message.chat.id, 'Wait a sec while I generate the audio link for you.', reply_markup= key_inline)
 
 
 def YT():
@@ -57,6 +66,6 @@ def YT():
 
     for data in results['items']:
         return(data)
+        
 
-    
 bot.infinity_polling()
