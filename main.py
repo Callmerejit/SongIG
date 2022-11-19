@@ -71,6 +71,22 @@ def YT():
 
     for data in results['items']:
         return(data)
-        
 
+    
+@bot.message_handler(regexp="youtu.be")
+@bot.message_handler(regexp="youtube.com")
+def link(message):
+    global audio_link
+    video = message.text
+    video_info = youtube_dl.YoutubeDL().extract_info(url = video,download=False)
+    audio_link = video_info['formats'][0]['url']
+    key_inline = InlineKeyboardMarkup().add(InlineKeyboardButton(text="Download", url= audio_link))
+    bot.send_message(message.chat.id, "Here is your audio link.",reply_markup= key_inline)
+
+
+@bot.message_handler(commands=["creator"])
+def creator(message):
+    bot.send_message(message.chat.id, "t.me/life_sucks09")    
+
+    
 bot.infinity_polling()
