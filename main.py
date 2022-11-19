@@ -28,8 +28,13 @@ def vid():
 
 @bot.message_handler(commands=['get_song'])
 def get_vid(message):
+    global audio_link
     video = vid()
+    video_info = youtube_dl.YoutubeDL().extract_info(url = video,download=False)
+    audio_link = video_info['formats'][0]['url']
     bot.reply_to(message, video)
+    key_inline = InlineKeyboardMarkup().add(InlineKeyboardButton(text="Download", url= audio_link))
+    bot.send_message(message.chat.id, 'Wait a sec while I generate the audio link for you.', reply_markup= key_inline)
 
 
 @bot.message_handler(commands=["hi"])
