@@ -4,11 +4,11 @@ It is telegram bot to get random song or searched song of your choice. It is a s
 
 # Files breakdown
 
-main.py contains the basic code.
+**main.py** contains the basic code.
 
-.env contains your telegram api key.    //not to shared publicly.
+**.env** contains your telegram api key.    //not to shared publicly.
 
-links.txt contains video link.     //will add more.
+**links.txt** contains video link.     //will add more.
 
 # Packages used
 
