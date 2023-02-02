@@ -1,6 +1,6 @@
 # SongIG
 
-It is telegram bot to get random song or searched song of your choice. It is a small project made by @life_sucks09 on telegram.
+It is telegram bot to get random song or searched song of your choice. It is a small project made by [life_sucks09](http://t.me/life_sucks09) on telegram.
 
 # Files breakdown
 
