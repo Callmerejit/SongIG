@@ -7,10 +7,10 @@ import random
 import youtube_dl
 
 
-API_KEY = os.getenv('API_KEY')     //telegram bot api key here.
+API_KEY = os.getenv('API_KEY')     #telegram bot api key here.
 bot = telebot.TeleBot(API_KEY)
 
-API_YT = os.getenv('API_YT')    //youtube data api key here.
+API_YT = os.getenv('API_YT')    #youtube data api key here.
 
 audio_link = ''
 query = ''
