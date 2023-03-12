@@ -6,9 +6,9 @@ It is telegram bot to get random song or searched song of your choice. It is a s
 
 **main.py** contains the basic code.
 
-**.env** contains all of the api keys.    //not to shared be publicly.
+**.env** contains all of the api keys.
 
-**links.txt** contains video link.     //will add more.
+**links.txt** contains video link.
 
 # Packages used
 
