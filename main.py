@@ -7,7 +7,7 @@ import random
 import youtube_dl
 
 
-API_KEY = os.getenv('API_KEY')     
+API_KEY = os.getenv('API_KEY')
 bot = telebot.TeleBot(API_KEY)
 
 API_YT = os.getenv('API_YT')    
