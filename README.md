@@ -1,21 +1,44 @@
-# SongIG
+# SongIG Telegram Bot
 
-It is telegram bot to get random song or searched song of your choice. It is a small project made by [life_sucks09](http://t.me/life_sucks09) on telegram.
+This is a Telegram bot that allows you to download songs from YouTube. The bot provides the following features:
 
-# Files breakdown
+- Get a random song using the `/get_song` command.
+- Search for a song using the `/find` command.
+- Download songs by providing a YouTube video link.
 
-**main.py** contains the basic code.
+## Usage
 
-**.env** contains all of the api keys.
+1. Start the bot by sending the `/start` command.
+2. Use the `/get_song` command to get a random song.
+3. Use the `/find <Song Name>` command to search for a specific song.
+4. Send a YouTube video link to download the corresponding song.
 
-**links.txt** contains video link.
+## Commands
 
-# Packages used
+- `/start`: Start the bot and get instructions.
+- `/get_song`: Get a random song.
+- `/hi`: Get the GitHub repository link.
+- `/find <Song Name>`: Search for a song.
+- `/creator`: Get information about the creator.
 
-1. **os**                                                     --> used to import the API_KEY from .env file.
-2. **telebot**                                                --> used to create the bot.
-3. **InlineKeyboardButton, InlineKeyboardMarkup**             --> used to add an inline keyboard(import from telebot.types).
-4. **json**                                                   --> used to load the html page as an python dictionary.
-5. **urllib.request**                                         --> used to request a wed search on youtube.
-6. **random**                                                 --> used to get a random link.
-7. **youtube_dl**                                             --> used to get the audio file link from searched video.
+## Requirements
+
+- Python 3.x
+- telebot library
+- youtube_dl library
+
+## Setup
+
+1. Clone this repository: `git clone https://github.com/your-username/your-repo.git`
+2. Install the required libraries: `pip install telebot youtube_dl`
+3. Set up your Telegram Bot API key and YouTube API key.
+4. Replace the placeholders in the code with your API keys.
+5. Run the bot: `python bot.py`
+
+## Contributing
+
+Contributions are welcome! If you find any issues or want to add new features, please submit a pull request.
+
+## Contact
+
+For any questions or inquiries, please contact the creator of the bot at [Telegram](t.me/life_sucks09).
