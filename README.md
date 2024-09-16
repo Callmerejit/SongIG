@@ -26,7 +26,6 @@ This is a Telegram bot that allows you to download songs from YouTube. The bot p
 - Python 3.x
 - telebot library
 - youtube_dl library
-
 ## Setup
 
 1. Clone this repository: `git clone https://github.com/your-username/your-repo.git`
